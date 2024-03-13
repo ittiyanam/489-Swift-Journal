@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F899261A2BA1F4D7000FFEB5 /* ChooseRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89926192BA1F4D7000FFEB5 /* ChooseRole.swift */; };
 		F8B5E0F12B9F854C00B8D15C /* ClientBridgeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B5E0F02B9F854C00B8D15C /* ClientBridgeApp.swift */; };
 		F8B5E0F32B9F854C00B8D15C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B5E0F22B9F854C00B8D15C /* ContentView.swift */; };
 		F8B5E0F52B9F854E00B8D15C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8B5E0F42B9F854E00B8D15C /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F89926192BA1F4D7000FFEB5 /* ChooseRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRole.swift; sourceTree = "<group>"; };
 		F8B5E0ED2B9F854C00B8D15C /* ClientBridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClientBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B5E0F02B9F854C00B8D15C /* ClientBridgeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientBridgeApp.swift; sourceTree = "<group>"; };
 		F8B5E0F22B9F854C00B8D15C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				F8B5E0F02B9F854C00B8D15C /* ClientBridgeApp.swift */,
 				F8B5E0F22B9F854C00B8D15C /* ContentView.swift */,
+				F89926192BA1F4D7000FFEB5 /* ChooseRole.swift */,
 				F8B5E0F42B9F854E00B8D15C /* Assets.xcassets */,
 				F8B5E0F62B9F854E00B8D15C /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F899261A2BA1F4D7000FFEB5 /* ChooseRole.swift in Sources */,
 				F8B5E0F32B9F854C00B8D15C /* ContentView.swift in Sources */,
 				F8B5E0F12B9F854C00B8D15C /* ClientBridgeApp.swift in Sources */,
 			);
