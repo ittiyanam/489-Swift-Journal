@@ -3,8 +3,11 @@
 //  ClientBridge
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct ChooseRole: View {
+    @State private var navToBO = false // State variable to track navigation
+    @State private var navToClient = false // State variable to track navigation
     var body: some View {
         VStack(spacing: 20) {
             Spacer()
@@ -22,17 +25,22 @@ struct ChooseRole: View {
             
             Rectangle()
                 .fill(Color(hex: "004AAD"))
-                .frame(width: 250, height: 40)
+                .frame(width: 250, height: 45)
                 .overlay(
-                    Text("Choose your role:")
+                    Text("Who are you?")
                         .font(.system(size: 18))
                         .foregroundColor(.white)
                 )
             
             CustomButton(title: "I'm a Business Owner")
+                .onTapGesture {
+                    navToBO = true}
                         
             CustomButton(title: "I'm a Client")
-
+                .onTapGesture {
+                    navToClient = true}
+            
+            
             
             Spacer()
         }
@@ -53,32 +61,36 @@ struct ChooseRole_Previews: PreviewProvider {
 
 struct CustomButton: View {
     var title: String
+
+    @State private var isHovered = false
     
     var body: some View {
         Button(action: {
             // Action for the button
         }) {
             Text(title)
-                .foregroundColor(Color(hex: "004AAD")) // Blue text color
-                .padding(.vertical, 3) // Thinner vertically with padding
-                .padding(.horizontal, 16) // Adjust horizontal padding for both buttons
-                .background(Color.white) // White background
+                .foregroundColor(isHovered ? Color.white : Color(hex: "004AAD")) // Blue text color
+                .frame(width: 200, height: 40) // Fixed width and height
+                .background(isHovered ? Color(hex: "004AAD") : Color.white) // White background
                 .overlay(
                     RoundedRectangle(cornerRadius: 10) // Rounded rectangle border
                         .stroke(Color(hex: "004AAD"), lineWidth: 1) // Blue border color
                 )
                 
         }
+        .buttonStyle(PlainButtonStyle())
+        .onHover { hover in
+            self.isHovered = hover
+        }
         
     }
 }
 
 
-
 extension Color {
     init(hex: String) {
         let scanner = Scanner(string: hex)
-        _ = scanner.scanLocation // skip #
+        _ = scanner.scanString("#")
 
         var rgb: UInt64 = 0
         scanner.scanHexInt64(&rgb)
@@ -90,4 +102,3 @@ extension Color {
         self.init(red: red, green: green, blue: blue)
     }
 }
-
