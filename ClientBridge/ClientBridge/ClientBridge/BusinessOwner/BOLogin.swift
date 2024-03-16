@@ -11,25 +11,32 @@ struct BOLogin: View {
 
     var body: some View {
         VStack{
-            HStack(spacing:20){
-                Image("logo_only")
-                    .resizable()
-                    .frame(width: 72, height: 72) // Adjust size as needed
-                VStack{
-                    Text("BUSINESS OWNER")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .kerning(1)
-                    Text("Seamless communication and document management with your clients")
-                        .kerning(1)
-                        .foregroundColor(Color(hex: "004AAD"))
-                }
-            }
-            
+            Image("logo_only")
+                .resizable()
+                .frame(width: 72, height: 72) // Adjust size as needed
+            Text("BUSINESS OWNER")
+                .font(.title)
+                .fontWeight(.bold)
+                .kerning(1)
+
             Spacer()
-            Spacer()
+            Rectangle()
+                .fill(Color(hex: "004AAD"))
+                .frame(width: 100, height: 50)
+                .overlay(
+                    Text("Sign In")
+                        .font(.system(size: 18))
+                        .foregroundColor(.white)
+                        .bold()
+                )
+                .overlay(
+                    Rectangle()
+                        .stroke(Color(hex: "004AAD"), lineWidth: 2)
+                )
             
-            // Email TextField
+            Spacer().frame(height:30)
+            
+            // Auth TextFields
             TextField("Email", text: $email)
                 .padding(.horizontal, 30)
                 .foregroundColor(Color(hex: "004AAD")) // Text color
@@ -38,8 +45,6 @@ struct BOLogin: View {
                     .frame(width: 294, height: 40)
                     )
                 .padding()
-            
-            // Password TextField
             SecureField("Password", text: $password)
                 .padding(.horizontal, 30)
                 .foregroundColor(Color(hex: "004AAD")) // Text color
@@ -51,7 +56,14 @@ struct BOLogin: View {
             
             
             Spacer().frame(height:250)
-            
+
+            //footer
+            Text("BRIDGE THE GAP")
+                .bold()
+                .kerning(1)
+                .font(.system(size: 25))
+                //.font("Montserrat-Bold")
+
         }
         .padding([.leading, .trailing], 20) // Add padding to the leading and trailing edges
 

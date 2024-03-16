@@ -50,6 +50,7 @@ struct BOLoginOrCreate: View {
             
             Spacer()
             
+            //footer
             Text("BRIDGE THE GAP")
                 .bold()
                 .kerning(1)
@@ -94,6 +95,7 @@ struct SignInButton: View {
                 .frame(width: 200, height: 50) // Fixed width and height
                 .background(isHovered ? Color.white : Color(hex: "004AAD")) // White background on hover
                 .cornerRadius(15)
+                .bold()
         }
         .buttonStyle(PlainButtonStyle())
         .onHover { hover in
