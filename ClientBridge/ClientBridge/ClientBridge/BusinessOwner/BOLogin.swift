@@ -8,9 +8,10 @@ import UniformTypeIdentifiers
 struct BOLogin: View {
     @State private var email: String = ""
     @State private var password: String = ""
-
+    @State private var isAuthenticated: Bool = false
     var body: some View {
         VStack{
+            Spacer().frame(height:45)
             Image("logo_only")
                 .resizable()
                 .frame(width: 72, height: 72) // Adjust size as needed
@@ -19,22 +20,7 @@ struct BOLogin: View {
                 .fontWeight(.bold)
                 .kerning(1)
 
-            Spacer()
-            Rectangle()
-                .fill(Color(hex: "004AAD"))
-                .frame(width: 100, height: 50)
-                .overlay(
-                    Text("Sign In")
-                        .font(.system(size: 18))
-                        .foregroundColor(.white)
-                        .bold()
-                )
-                .overlay(
-                    Rectangle()
-                        .stroke(Color(hex: "004AAD"), lineWidth: 2)
-                )
-            
-            Spacer().frame(height:30)
+            Spacer()            
             
             // Auth TextFields
             TextField("Email", text: $email)
@@ -55,7 +41,17 @@ struct BOLogin: View {
                 .padding()
             
             
-            Spacer().frame(height:250)
+            Button(action: {
+                // Perform authentication
+                isAuthenticated = true // For demonstration, always authenticate
+            }) {
+                Text("Sign In")
+            }
+            .buttonStyle(AuthenticationButtonStyle())
+            .padding()
+
+            
+            Spacer()
 
             //footer
             Text("BRIDGE THE GAP")
@@ -65,9 +61,8 @@ struct BOLogin: View {
                 //.font("Montserrat-Bold")
 
         }
-        .padding([.leading, .trailing], 20) // Add padding to the leading and trailing edges
-
-        Spacer()
+        .padding() // Add padding to the leading and trailing edges
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .edgesIgnoringSafeArea(.all)
     }
@@ -82,6 +77,26 @@ struct BOLogin_Previews: PreviewProvider {
 }
 
 
+struct AuthenticationButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(
+                Rectangle()
+                    .fill(Color(hex: "004AAD"))
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
+                    .overlay(
+                        Rectangle()
+                            .stroke(Color(hex: "004AAD"), lineWidth: 2)
+                    )
+            )
+            .foregroundColor(.white)
+            .font(.system(size: 18))
+            .cornerRadius(8)
+            .opacity(configuration.isPressed ? 0.5 : 1.0)
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+    }
+}
 
 
 

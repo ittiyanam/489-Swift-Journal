@@ -17,15 +17,16 @@ struct ContentView: View {
                     .padding(3)
                 Text("WELCOME")
                     .font(.custom("Montserrat-Bold", size: 20))
+                
+                NavigationLink(destination:ChooseRole()){
+                    Text("Launch")
+                        .frame(width: 100, height: 100, alignment: .center)
+                        .background(.white)
+                        .foregroundColor(.black)
+                }
             }
             .padding()
             .navigationBarHidden(true)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                    self.isActive = true
-                }
-            }
-            .background(NavigationLink(destination: ChooseRole(), isActive: $isActive) { EmptyView() })
         }
     }
 }

@@ -18,6 +18,7 @@
 		F8B5E1022B9F854F00B8D15C /* ClientBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B5E1012B9F854F00B8D15C /* ClientBridgeTests.swift */; };
 		F8B5E10C2B9F854F00B8D15C /* ClientBridgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B5E10B2B9F854F00B8D15C /* ClientBridgeUITests.swift */; };
 		F8B5E10E2B9F854F00B8D15C /* ClientBridgeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B5E10D2B9F854F00B8D15C /* ClientBridgeUITestsLaunchTests.swift */; };
+		F8DA2AA92BA65B8E002FF5B7 /* CLoginOrCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA2AA82BA65B8E002FF5B7 /* CLoginOrCreate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		F8B5E1072B9F854F00B8D15C /* ClientBridgeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClientBridgeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B5E10B2B9F854F00B8D15C /* ClientBridgeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientBridgeUITests.swift; sourceTree = "<group>"; };
 		F8B5E10D2B9F854F00B8D15C /* ClientBridgeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientBridgeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F8DA2AA82BA65B8E002FF5B7 /* CLoginOrCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLoginOrCreate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		F8A391872BA35CB00033B9FD /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				F8DA2AA82BA65B8E002FF5B7 /* CLoginOrCreate.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				F8A3918D2BA388960033B9FD /* BOLoginOrCreate.swift in Sources */,
 				F899261A2BA1F4D7000FFEB5 /* ChooseRole.swift in Sources */,
 				F8B5E0F32B9F854C00B8D15C /* ContentView.swift in Sources */,
+				F8DA2AA92BA65B8E002FF5B7 /* CLoginOrCreate.swift in Sources */,
 				F8A391892BA371840033B9FD /* BOLogin.swift in Sources */,
 				F8B5E0F12B9F854C00B8D15C /* ClientBridgeApp.swift in Sources */,
 			);
