@@ -18,8 +18,10 @@ var meetings:[Meetings] =
  .init(name: "Breakfast", color: .orange, location: "Mess")]
 
 struct ContentView: View {
+    @State private var path: [Meetings] = []
+
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $path){
             List{
                 Section("My Courses"){
                     ForEach(courses, id:\.name) { //omgggg a for loop <333
@@ -32,13 +34,9 @@ struct ContentView: View {
                 }//section
                 
                 Section("My Meetings"){
-                    ForEach(meetings, id:\.name) { //omgggg a for loop <333
-                        meeting in
-                        NavigationLink(value: meeting){
-                            Text(meeting.name)
-                                .foregroundColor(meeting.color)
-                        }
-                    }//for
+                    Button("Add Meetings"){
+                        path.append(meetings.first!)
+                    }
                 }//section
 
             }//list
