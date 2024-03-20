@@ -14,35 +14,51 @@ struct ContentView: View {
     
     // Define a dictionary to store songs for each option
     let songs = [
-        "Fun": ["Happy by Pharrell Williams", "Shut Up and Dance by Walk the Moon", "Uptown Funk by Mark Ronson ft. Bruno Mars", "Beggin' by Maneskin"],
-        "AHHHHH": ["Industry Baby by Lil Nas X ft. Jack Harlow", "The Box by Roddy Ricch", "HUMBLE. by Kendrick Lamar", "Mo Bamba by Sheck Wes"],
-        "Vibey": ["Heat Waves by Glass Animals", "Brand New Person by Tame Impala", "Heartbreak Anniversary by Giveon"],
-        "Chill": ["Best Part by Daniel Caesar ft. H.E.R.", "Save Your Tears by The Weeknd", "Stay by The Kid LAROI & Justin Bieber", "Good Days by SZA", "Lost in Japan by Shawn Mendes"]
+        "Fun": ["Happy \n Pharrell Williams", "Shut Up and Dance \n Walk the Moon", "Uptown Funk \n Mark Ronson ft. Bruno Mars", "Beggin' \n Maneskin"],
+        "AHHHHH": ["Industry Baby \n Lil Nas X ft. Jack Harlow", "The Box \n Roddy Ricch", "HUMBLE. \n Kendrick Lamar", "Mo Bamba \n Sheck Wes"],
+        "Vibey": ["Heat Waves \n Glass Animals", "Brand New Person \n Tame Impala", "Heartbreak Anniversary \n Giveon"],
+        "Chill": ["Best Part \n Daniel Caesar ft. H.E.R.", "Save Your Tears \n The Weeknd", "Stay \n The Kid LAROI & Justin Bieber", "Good Days \n SZA", "Lost in Japan \n Shawn Mendes"]
     ]
     
     @State private var selectedSong = ""
     
     var body: some View {
-        VStack {
-            Text("I'm Feeling...")
-                .font(.system(size: 30))
-            Picker("", selection: $selection) {
-                ForEach(colors, id: \.self) {
-                    Text($0)
+        ZStack{
+            Color.purple
+                .ignoresSafeArea()
+
+            VStack {
+                Spacer().frame(height:200)
+                Text("I'm Feeling...")
+                    .font(.system(size: 40))
+                Picker("", selection: $selection) {
+                    ForEach(colors, id: \.self) {
+                        Text($0)
+                    }
                 }
+                .pickerStyle(.menu)
+                .onChange(of: selection, perform: { _ in
+                    selectRandomSong()
+                })
+                
+                Spacer().frame(height: 10)
+                // Display the selected song
+                RoundedRectangle(cornerRadius: 20) // Adjust the corner radius as needed
+                    .stroke(Color.blue, lineWidth: 2) // Border color and width
+                    .padding(.vertical, 150) // Adjust the vertical padding
+                    .padding(.horizontal, 20) // Adjust the horizontal padding
+                    .overlay(
+                        Text(selectedSong)
+                            .font(.title2)
+                            .foregroundColor(.black) // Changing text color
+                            .multilineTextAlignment(.center) // Center-aligning text
+                            .padding() // Adding some padding
+                    )
             }
-            .pickerStyle(.menu)
-            .onChange(of: selection, perform: { _ in
+            .onAppear {
+                // Set the initial selected song
                 selectRandomSong()
-            })
-            
-            Spacer().frame(height: 30)
-            // Display the selected song
-            Text(selectedSong)
-        }
-        .onAppear {
-            // Set the initial selected song
-            selectRandomSong()
+            }
         }
     }
     
@@ -52,7 +68,7 @@ struct ContentView: View {
             // Select a random song from the array
             selectedSong = songsForSelection.randomElement() ?? ""
         }
-    }
+    }//selectRandomSong()
 }
 
 
