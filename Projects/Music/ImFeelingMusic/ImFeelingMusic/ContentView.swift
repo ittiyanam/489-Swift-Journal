@@ -24,51 +24,54 @@ struct ContentView: View {
     
     var body: some View {
         ZStack{
-            Color.purple
+            //change background color
+            Color.yellow
                 .ignoresSafeArea()
 
             VStack {
                 Spacer().frame(height:200)
                 Text("I'm Feeling...")
                     .font(.system(size: 40))
+                //dropdown
                 Picker("", selection: $selection) {
                     ForEach(colors, id: \.self) {
                         Text($0)
                     }
                 }
                 .pickerStyle(.menu)
+                //when selection is changed
                 .onChange(of: selection, perform: { _ in
-                    selectRandomSong()
+                    selectRandomSong() //pick random song
                 })
                 
                 Spacer().frame(height: 10)
-                // Display the selected song
-                RoundedRectangle(cornerRadius: 20) // Adjust the corner radius as needed
+                // display selected song
+                RoundedRectangle(cornerRadius: 20) // radius
                     .stroke(Color.blue, lineWidth: 2) // Border color and width
-                    .padding(.vertical, 150) // Adjust the vertical padding
-                    .padding(.horizontal, 20) // Adjust the horizontal padding
+                    .padding(.vertical, 150) // vertical padding
+                    .padding(.horizontal, 20) // horizontal padding
                     .overlay(
                         Text(selectedSong)
                             .font(.title2)
-                            .foregroundColor(.black) // Changing text color
-                            .multilineTextAlignment(.center) // Center-aligning text
-                            .padding() // Adding some padding
+                            .foregroundColor(.black) // text color
+                            .multilineTextAlignment(.center) // centering text
+                            .padding()
                     )
             }
             .onAppear {
-                // Set the initial selected song
+                // set initial song
                 selectRandomSong()
             }
         }
     }
-    
+    //selects a random song from respective list
     func selectRandomSong() {
-        // Get the array of songs based on the current selection
+        // get array of songs based on selection
         if let songsForSelection = songs[selection] {
-            // Select a random song from the array
+            // random song from array
             selectedSong = songsForSelection.randomElement() ?? ""
         }
-    }//selectRandomSong()
+    }//func
 }
 
 

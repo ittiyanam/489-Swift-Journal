@@ -31,7 +31,7 @@ struct BOLoginOrCreate: View {
                 }
                 
                 Spacer()
-                
+                //go to login screen if the text is pressed
                 NavigationLink(destination: BOLogin()){
                     SignInText(title: "Sign In")
                 }
@@ -41,7 +41,7 @@ struct BOLoginOrCreate: View {
                 Text("OR")
                     .bold()
                 Spacer().frame(height: 20)
-                
+                //go to create acc if respective text is pressed
                 //Create an Account -- NW
                 NavigationLink(destination: BOCreateAnAccount()){
                     Text("Create an Account")
@@ -60,7 +60,7 @@ struct BOLoginOrCreate: View {
                 //.font("Montserrat-Bold")
                 
             }
-            .padding() // Add padding to the leading and trailing edges
+            .padding() // padding to leading and trailing edges
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.white)
             .edgesIgnoringSafeArea(.all)

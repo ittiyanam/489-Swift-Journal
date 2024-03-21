@@ -33,7 +33,7 @@ struct BOCreateAnAccount: View {
                         .bold()
                 )
             Spacer().frame(height:30)
-            // Auth TextFields
+            // authentication TextFields
             TextField("Email", text: $email)
                 .padding(.horizontal, 45)
                 .foregroundColor(Color(hex: "004AAD")) // Text color
@@ -42,6 +42,7 @@ struct BOCreateAnAccount: View {
                     .frame(width: 294, height: 40)
                     )
                 .padding()
+            //password will use the SecureField type
             SecureField("Password", text: $password)
                 .padding(.horizontal, 45)
                 .foregroundColor(Color(hex: "004AAD")) // Text color

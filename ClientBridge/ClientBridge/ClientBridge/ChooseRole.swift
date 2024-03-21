@@ -11,6 +11,7 @@ struct ChooseRole: View {
         NavigationView { // Embed in NavigationView
             VStack(spacing: 20) {
                 Spacer()
+                //logo and text
                 Image("logo_only")
                     .resizable()
                     .frame(width: 200, height: 200)
@@ -21,7 +22,7 @@ struct ChooseRole: View {
                 Text("where businesses and \nclients connect effortlessly")
                     .font(.custom("Montserrat-Thin", size: 16))
                     .multilineTextAlignment(.center)
-                
+                //question box
                 Rectangle()
                     .fill(Color(hex: "004AAD"))
                     .frame(width: 250, height: 45)
@@ -31,12 +32,12 @@ struct ChooseRole: View {
                             .foregroundColor(.white)
                     )
                 
-                // Use NavigationLink to navigate to BusinessOwnerView if navToBO is true
+                // NavigationLink goes to BusinessOwnerView if navToBO is true
                 NavigationLink(destination: BOLoginOrCreate()){
                     CustomText(title: "I'm a Business Owner")
                 }
                 
-                // Use NavigationLink to navigate to ClientView if navToClient is true
+                // NavigationLink goes to ClientView if navToClient is true
                 NavigationLink(destination: CLoginOrCreate()){
                     CustomText(title: "I'm a Client")
                 }

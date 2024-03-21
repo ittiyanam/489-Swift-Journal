@@ -25,25 +25,25 @@ struct BOLogin: View {
             // Auth TextFields
             TextField("Email", text: $email)
                 .padding(.horizontal, 30)
-                .foregroundColor(Color(hex: "004AAD")) // Text color
+                .foregroundColor(Color(hex: "004AAD")) // text color
                 .background(RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color(hex: "004AAD"), lineWidth: 1) // Custom border color and width
+                    .stroke(Color(hex: "004AAD"), lineWidth: 1) // border color and width
                     .frame(width: 294, height: 40)
                     )
                 .padding()
             SecureField("Password", text: $password)
                 .padding(.horizontal, 30)
-                .foregroundColor(Color(hex: "004AAD")) // Text color
+                .foregroundColor(Color(hex: "004AAD")) // text color
                 .background(RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color(hex: "004AAD"), lineWidth: 1) // Custom border color and width
+                    .stroke(Color(hex: "004AAD"), lineWidth: 1) // border color and width
                     .frame(width: 294, height: 40)
                     )
                 .padding()
             
             
             Button(action: {
-                // Perform authentication
-                isAuthenticated = true // For demonstration, always authenticate
+                //perform authentication
+                isAuthenticated = true //test val, always T
             }) {
                 Text("Sign In")
             }
@@ -61,10 +61,10 @@ struct BOLogin: View {
                 //.font("Montserrat-Bold")
 
         }
-        .padding() // Add padding to the leading and trailing edges
+        .padding() // padding to the leading and trailing edges
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
-        .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.all) //goes past safe area
     }
 
 }
@@ -76,8 +76,9 @@ struct BOLogin_Previews: PreviewProvider {
     }
 }
 
-
+//style of the button to sign in
 struct AuthenticationButtonStyle: ButtonStyle {
+    //style of button
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
